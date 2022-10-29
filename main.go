@@ -5,8 +5,10 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 )
 
 func enableCors(w *http.ResponseWriter) {
@@ -39,11 +41,13 @@ func task(w http.ResponseWriter, req *http.Request) {
 func main() {
 
 	r := mux.NewRouter()
-
+	godotenv.Load()
+	port :=os.Getenv("PORT")
 
 
 	r.HandleFunc("/", task).Methods("GET")
+	address := fmt.Sprintf(":%s",port)
 
-	fmt.Println("Server started at port 3001")
-	log.Fatal(http.ListenAndServe(":8090", r))
+	fmt.Println("Server started at port ",address)
+	log.Fatal(http.ListenAndServe(address, r))
 }
