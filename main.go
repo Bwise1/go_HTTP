@@ -23,7 +23,7 @@ type details struct {
 }
 
 func task(w http.ResponseWriter, req *http.Request) {
-	data := &details{SlackUsername:"Benjys", Backend:true, Age: 27, Bio: "I don't want peace, I am a fight ..."}
+	data := &details{SlackUsername:"MayorBenjys", Backend:true, Age: 27, Bio: "I am new to this part of the tech world, hoping to make it through to the end of the internship"}
 	enableCors(&w)
 
 	w.Header().Set("Content-Type", "application/json")
