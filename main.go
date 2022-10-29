@@ -44,6 +44,6 @@ func main() {
 
 	r.HandleFunc("/", task).Methods("GET")
 
-	fmt.Println("Server started at port 8090")
+	fmt.Println("Server started at port 3001")
 	log.Fatal(http.ListenAndServe(":8090", r))
 }
